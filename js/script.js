@@ -1,6 +1,3 @@
-
-
-
 var map = L.map('map').setView([41.8369, -87.6847], 11);
 
 var Esri_OceanBasemap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
@@ -48,18 +45,15 @@ d3.csv("monthlyhomicides.csv", function(error,data){
 var barChart = d3.select("#bar")
             .append("svg")
             .attr("width", "100%")
-            .attr("height", 700)
-            .on('mouseover', function(d){
-            	showNumber(data);
-});
+            .attr("height", 700);
 
 function makeChart(data){
 	var bP = barChart.selectAll("g.bP")
    .data(data)
    .enter()
-   .append("g")
+   .append("g");
 
-   var appendRect = bP
+   var appendRect1 = bP
    .append("rect")
    .attr("y", function(d, i) {
     return (i * (704 / 12) + 2);
@@ -67,18 +61,18 @@ function makeChart(data){
    .attr("x", 0)
    .attr("height", 53)
    .attr("width", function(d) {
-      return 8*d.Count;
+      return 6*d.Count;
     })
     .attr("fill", function(d) {
     return "rgb(" + (d.Count * 5) + ",0,60)";
-    });
+    }); 
 
    barChart.selectAll("text")
    .data(data)
    .enter()
    .append("text")
    .text(function(d) {
-        return d.Month + ": " + d.Count;
+        return d.Month;
    })
    .attr("y", function(d, i) {
         return i * (704/12) +35;
