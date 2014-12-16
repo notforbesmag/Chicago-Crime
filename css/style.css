@@ -1,0 +1,50 @@
+.wrap {
+	background-image: url("../images/ChicagoSkyline.jpg");
+	background-size: cover;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	top: 0;
+}
+.container {
+	background: rgba(0,0,0,.5);
+	padding: 20px;
+	color: white;
+	z-index: 10;
+	font-family: 'Raleway', sans-serif;
+}
+.subrow { 
+  border: solid black 2px;
+  height: 350px;
+}        
+.subrow:first-child { 
+border: none;
+}
+#map {
+	height: 700px;
+	border: solid black 2px;
+}
+#graphs {
+	height: 700px;
+}
+#kanyecitation {
+	text-align: center;
+	margin: 0 auto;
+}
+#title {
+	z-index: 100;
+	position: relative;
+	background: rgba(0,0,0,.8);
+}
+h1 {
+	text-align: center;
+	margin: 0 auto;
+	font-size: 30rem;
+	color: rgb(191,40,40);
+	font-weight: 900;
+}
+h2 {
+	font-size: 3rem;
+	text-align: center;
+}
