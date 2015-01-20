@@ -13,13 +13,9 @@
 	color: white;
 	z-index: 10;
 	font-family: 'Raleway', sans-serif;
-}
-.subrow { 
-  border: solid black 2px;
-  height: 350px;
-}        
-.subrow:first-child { 
-border: none;
+	margin-top: 30px;
+	padding-bottom: 70px;
+	margin-bottom: 20px;
 }
 #map {
 	height: 700px;
@@ -40,11 +36,16 @@ border: none;
 h1 {
 	text-align: center;
 	margin: 0 auto;
-	font-size: 25rem;
+	font-size: 12vw;
 	color: rgb(191,40,40);
 	font-weight: 900;
 }
 h2 {
 	font-size: 3rem;
 	text-align: center;
+	color: rgb(240,240,240);
+}
+#title h2 {
+	font-size: 4rem;
+	letter-spacing: .5vw;
 }

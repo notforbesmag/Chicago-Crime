@@ -1,5 +1,7 @@
 var map = L.map('map').setView([41.8369, -87.6847], 11);
 
+map.on("click", placePoints);
+
 var Esri_OceanBasemap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
 	maxZoom: 13}).addTo(map);
@@ -7,12 +9,15 @@ var Esri_OceanBasemap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/
 var mapp = d3.select(map.getPanes().overlayPane).append("svg"),
     g = mapp.append("g").attr("class", "leaflet-zoom-hide");
 
+
+function placePoints() {
 d3.json("chicagohomicides2013.geojson", function(collection) {
   var transform = d3.geo.transform({point: projectPoint}),
       path = d3.geo.path().projection(transform);
   var feature = g.selectAll("path")
       .data(collection.features)
-    .enter().append("path").transition().delay(function(d, i) { return 100 * i } );
+      //Place the points with a delay
+      .enter().append("path").transition().delay(function(d, i) { return 100 * i} );
   mapp.on("viewreset", reset);
   reset();
   
@@ -35,6 +40,7 @@ d3.json("chicagohomicides2013.geojson", function(collection) {
     this.stream.point(point.x, point.y);
   }
 });
+}
 
 
 //parse date and position by month
