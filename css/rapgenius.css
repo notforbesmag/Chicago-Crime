@@ -1,0 +1,7 @@
+iframe {
+	width: 960px;
+}
+.embedded_annotation.standalone_embed {
+	max-width:  940px;
+	width: 960px !important;
+}

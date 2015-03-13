@@ -1,5 +1,12 @@
 var map = L.map('map').setView([41.8369, -87.6847], 11);
 
+map.dragging.disable();
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+map.boxZoom.disable();
+map.keyboard.disable();
+
 map.on("click", placePoints);
 
 var Esri_OceanBasemap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
@@ -20,7 +27,7 @@ d3.json("chicagohomicides2013.geojson", function(collection) {
       .enter().append("path").transition().delay(function(d, i) { return 100 * i} );
   mapp.on("viewreset", reset);
   reset();
-  
+
   // Reposition the SVG to cover the features.
   function reset() {
     var bounds = path.bounds(collection),
@@ -33,7 +40,7 @@ d3.json("chicagohomicides2013.geojson", function(collection) {
     g   .attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
     feature.attr("d", path);
   }
-  
+
  // Use Leaflet to implement a D3 geometric transformation.
   function projectPoint(x, y) {
     var point = map.latLngToLayerPoint(new L.LatLng(y, x));
@@ -71,7 +78,7 @@ function makeChart(data){
     })
     .attr("fill", function(d) {
     return "rgb(" + (d.Count * 5) + ",0,60)";
-    }); 
+    });
 
    barChart.selectAll("text")
    .data(data)
