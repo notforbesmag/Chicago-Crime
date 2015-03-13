@@ -1,6 +1,5 @@
-var map = L.map('map').setView([41.8369, -87.6847], 11);
+var map = L.map('map', {zoomControl:false}).setView([41.8369, -87.6847], 11);
 
-map.zoomControl(false);
 map.dragging.disable();
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
